@@ -1,0 +1,12 @@
+#intro {
+  background: url(terrain.jpg) 0% 0%/cover no-repeat;
+} /*This is to include a picture in the section tag as a background image. Anything in the section will be on top of it. However it doesnt fit all the user's page so we need to fill viewport*/
+
+.fill-viewport {
+    min-height: 100vh;
+} /*We add this class ourselves. It doesnt exist in bootstrap. We add it to the row division so it will fit the entire row section. Why in ROW and not container ? - Except in certain very special occasions, every utility class you need on a containing content body shoudl go in the .row. This is to have a good code structure*/
+
+#intro hr {
+    border-color: green;
+    width: 200px;
+}
