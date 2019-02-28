@@ -1,12 +1,240 @@
-#intro {
-  background: url(terrain.jpg) 0% 0%/cover no-repeat;
-} /*This is to include a picture in the section tag as a background image. Anything in the section will be on top of it. However it doesnt fit all the user's page so we need to fill viewport*/
-
-.fill-viewport {
-    min-height: 100vh;
-} /*We add this class ourselves. It doesnt exist in bootstrap. We add it to the row division so it will fit the entire row section. Why in ROW and not container ? - Except in certain very special occasions, every utility class you need on a containing content body shoudl go in the .row. This is to have a good code structure*/
-
-#intro hr {
-    border-color: green;
-    width: 200px;
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.fullscreen {
+  background-image: url("pics/terrain.jpg");
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+a {
+    text-decoration: none;
+}
+/*********************************************
+                    NAVBAR
+*********************************************/
+/*Fixing the size of the nav bar*/
+.nav {
+    height: 100px;
+    width: 100%;
+    position: relative;
+}
+/*Taking care of the Hamburger - not visible by default*/
+.nav > .nav-btn {
+    display: none;
+}
+/*Menu links on the right and position on list*/
+.nav > .nav-links {
+    display: inline;
+    font-size: 1.1rem;
+    line-height: 3em;
+}
+/*Menu links items style*/
+.nav > .nav-links > a {
+    display: inline-block;
+    padding: 15px 15px;
+    color: white;
+}
+/*Behavior when hovered*/
+.nav > .nav-links > a:hover {
+    color: green;
+}
+.nav > #nav-check {
+    display: none;
+}
+                /*******************
+                MEDIA QUERIES NAVBAR
+                *******************/
+/* On screens that are 600px wide or less, the nav bar changes = hamburger  */
+@media screen and (max-width:600px) {
+/*Position of the hamburger*/
+    .nav > .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        top: 25%;
+    }
+/*Designing the hamburger instead of a picture*/
+    .nav > .nav-btn > label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+/*Behavior when hovered*/
+    .nav > .nav-btn > label:hover {
+        background-color: green;
+    }
+    .nav > .nav-btn > label > span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: white;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 0px;
+    }
+    .nav > .nav-links > a {
+        display: block;
+        width: 100%;
+        color: green;
+        padding: 0 0 0 10px;
+        margin: 0;
+    }
+    .nav > #nav-check:not(:checked) + .nav-links {
+        height: 00px;
+    }
+    .nav > #nav-check:checked + .nav-links {
+        height: calc(20vh - 50px);
+        overflow-y: auto;
+    }
+}
+.content {
+    justify-content: center;
+    
+}
+hr {
+    background-color: green;
+    width: 35%;
+}
+.arrow-container {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrow-container i:hover {
+    color: green;
+}
+/*********************************************
+                PRESENTATION
+*********************************************/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+/* Create four equal columns that sits next to each other */
+h2 {
+    background: -webkit-linear-gradient(#52c234, #061700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+                /*******************
+                MEDIA QUERIES NAVBAR
+                *******************/
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+/*********************************************
+                CAROUSSEL
+*********************************************/
+.comment {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.carousel-control-next-icon {
+    color: black;
+}
+.carousel-control-prev-icon {
+    color: black;
+}
+.italic {
+    font-style: italic;
+    font-size: 1.3em;
+}
+.bold {
+    font-weight: bold;
+}
+@media screen and (max-width: 750px) {
+    .italic {
+    font-style: italic;
+    font-size: .8em;
+    }
+}
+/*********************************************
+                CTO
+*********************************************/
+.card {
+    background-color: black;
+    border-color: black;
+}
+.card hr {
+    border-color: white;
+}
+.card-background {
+    background-color: black;
+}
+.card img {
+    border-radius: 5px;
+}
+.card-color {
+    background-color: black;
+}
+.text-color {
+    color: green;
+}
+.card {
+    margin: auto;
+}
+/********************************************
+                BANNER
+********************************************/
+.banner {
+    background-color: black;
+}
+.banner img {
+    display:block;
+    margin:auto;
+}
+/********************************************
+                FOOTER
+********************************************/
+.footer {
+    background-color: black;
+    line-height: 5em;
+}
+.footer a {
+    color: white;
+}
+.footer a:hover {
+    color: green;
 }
